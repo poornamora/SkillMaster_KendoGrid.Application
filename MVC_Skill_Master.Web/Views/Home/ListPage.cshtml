@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MVC_Skill_Master.Web.Models.UserRegistration>
+
+
+@{
+    ViewData["Title"] = "List of Employees";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .Search-container {
+            position: absolute;
+            left: 1200px;
+            top: 72px;
+        }
+
+        .panel-heading {
+            align-items: center;
+        }
+
+        .search-input {
+            display: inline-flex;
+        }
+
+            .search-input input[type="text"] {
+                margin-right: 10px;
+            }
+
+        #search-h3 {
+            bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="box-title">
+                <b>List of Users</b>
+            </h1>
+        </div>
+
+        <div class="Search-container">
+            <h3 id="search-h3">Search Details:</h3><br />
+            <label for="name"><strong>Enter ID:</strong></label>
+            <div class="search-input">
+                <input type="text" name="search" class="form-control" id="nameinput" style="width:120px" />
+                <a href="#" class="btn btn-primary" id="searchbtn">Search</a>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="panel-body">
+            <table class="table table-hover table-bordered table-condensed" id="withroles">
+                <thead style="background-color:burlywood">
+                <td><b>ID</b></td>
+                <td><b>Name</b></td>
+                <td><b>Email</b></td>
+                <td><b>Password</b></td>
+                <td><b>ViewDetails</b></td>
+                <td><b>JsonData</b></td>
+                <td><b>Update</b></td>
+                <td><b>Delete</b></td>
+                </thead>
+
+                <tbody style="background-color:aquamarine">
+                    @foreach (var item in Model)
+                    {
+                        <div>
+                            <input type="hidden" id="itemId" value="@item.Id" />
+                        </div>
+
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Password</td>
+                            <td>@Html.ActionLink("ViewDetails", "UserDetails", new { id = item.Id })</td>
+                            <td>@Html.ActionLink("JsonData", "JsonDataAction", new { id = item.Id })</td>
+                            <td>@Html.ActionLink("Update", "UpdateUser", new { id = item.Id })</td>
+
+                            <td><a href="" class="delete-link" id="selectedid" data-id="@item.Id">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+@section Scripts {
+    <script>
+        var searchByIdUrl = '@Url.Action("SearchbyId", "Home")';
+    </script>
+    <script src="~/js/SearchDetails/SearchbyId.js"></script>
+
+
+    <script>
+        var deleteById = '@Url.Action("DeleteUser", "Home")';
+    </script>
+    <script src="~/js/deletefolder/deletealert.js"></script>
+}
+
+
+
+
+
+

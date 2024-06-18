@@ -1,0 +1,6 @@
+@DAL_Skill_Master.API_HostAddress = http://localhost:5033
+
+GET {{DAL_Skill_Master.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,50 @@
+﻿body {
+}
+
+#error1, #error2, #error3, #error4 {
+    color: red;
+}
+
+
+.fa-exclamation-circle{   
+    color: red!important;
+}
+
+
+.registration-container
+{
+    border:1px solid double;
+    padding:10px;
+    border-radius:10px;
+    background-color:aquamarine;
+}
+
+.heading-container{
+    color:blue;
+}
+
+#headref
+{
+    color:blue;
+}
+
+/*#btn-register {
+    position: absolute;
+    bottom: 218px;
+    align-items: center;
+    right: 850px;
+    width: 100px;
+    height: 43px;
+}*/
+
+.username-container{
+    position: absolute;
+    right: 1px;
+}
+
+.logout-container {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
+

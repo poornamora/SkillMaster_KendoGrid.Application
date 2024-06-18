@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DAL_Skill_Master.API.props" />
+</Project>

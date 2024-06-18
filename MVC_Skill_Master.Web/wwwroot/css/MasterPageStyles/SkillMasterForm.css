@@ -1,0 +1,595 @@
+﻿/* Custom CSS for the modal header */
+.modal-content h5 {
+    position: relative;
+    background-color: #30619f;
+    color: #fff;
+    padding: 19px;
+    margin-top: 0;
+    border-radius: 5px 5px 0 0;
+    left: -29px;
+    width: 858px;
+    margin-top: -48px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fafafa;
+    padding: 0;
+    max-height: 57%;
+    width: 50%;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity;
+}
+
+
+#modal-content-curd{
+    position:relative;
+    top:-2px;
+    padding:20px;
+    width:100%;
+}
+
+
+
+    #inputskillname, #inputNumberofEmployees, #inputRatePerHour {
+        width: calc(100% - 335px); /* Set width to 100% minus padding */
+        padding: 0px; /* Add padding for better appearance */
+        border: 1px solid #ccc; /* Add border */
+        border-radius: 5px; /* Add border radius for rounded corners */
+        margin-bottom: 10px; /* Add margin at bottom for spacing */
+    }
+    
+   
+
+
+#inputRemark {
+    width: calc(100% - 40px); /* Set width to 100% minus padding */
+    padding: 10px; /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-bottom: 10px; /* Add margin at bottom for spacing */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+
+.modal-footer .btn-flat:hover {
+    background-color: #0a7bcd; 
+}
+
+
+#skillicon, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #ExistNameIcon {
+    display: none;
+}
+
+.Iconcolor {
+    position: absolute;
+    color: red;
+}
+#skillerror, #NumberofEmployeeserror, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt {
+    color: red;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}
+
+.required{
+    color:black;
+}
+
+.colorclass{
+    color:black;
+}
+
+
+.checkbox-align {
+    text-align: center; 
+}
+
+
+#menu-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#menu-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu-box ul li {
+    margin-bottom: 5px;
+}
+
+#menu-box ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+#submit {
+    background-color: blue;
+    position: absolute;
+    right: 117px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#cancel {
+    position: absolute;
+    right: 48px;
+    cursor:pointer;
+    color:grey;
+}
+
+.heading{
+    color:white;
+}
+
+/*[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: absolute;
+    opacity: 2;
+    pointer-events: none;
+}
+*/
+
+#inputskillname {
+    position: relative;
+    left: 116px;
+    width:500px;
+}
+
+#inputNumberofEmployees {
+    position: relative;
+    left: 50px;
+    width: 500px;
+}
+
+#inputRatePerHour {
+    position: relative;
+    left: 102px;
+    width: 500px;
+}
+
+#inputRemark {
+    position: relative;
+    width: 500px;
+    height: 89px;
+    left: 138px;
+}
+
+
+.Remarkclass {
+    position: relative;
+    top: -76px;
+    color:black;
+}
+
+
+.checkboxclass {
+    position: relative;
+    left: 123px;
+    bottom:-7px;
+}
+
+
+
+
+#closebtn {
+    position: absolute;
+    top: 23px;
+    right: 17px;
+    color: white;
+}
+
+
+
+#skillicontxt {
+    position: absolute;
+    right: 43px;
+    top: 176px;
+}
+
+#Numbericontxt {
+    position: absolute;
+    right: 43px;
+    top: 234px;
+}
+
+
+
+
+#IsActiveCheckbox {
+    position: relative;
+    top: 18px;
+    left: 234px;
+    cursor: pointer;
+}
+
+
+
+
+#dummycheckbox {
+    display: none;
+}
+
+#lblactive {
+    position: relative;
+    top: -36px;
+    left: -58px;
+    color: black;
+}
+
+#ExistsNameId{
+    color:red;
+}
+
+#spanisActive {
+    position: relative;
+    right: -32px;
+    
+    top: 18px;
+}
+
+#ExistNameIcon {
+    top: 404px;
+    right: 468px;
+}
+
+.edittext {
+    position: relative;
+    top: -5px;
+}
+
+.Viewtext{
+    position:relative;
+    top:-6px;
+}
+
+.deletetext {
+    position: relative;
+    top: -6px;
+}
+
+#addButton, #gridbutton, #binbutton, #editbutton, #gridbutton, #Refreshbutton, #dropdownlist {
+    cursor: pointer;
+    color: #30619f
+}
+#closebtn{
+    cursor:pointer;
+}
+
+.curddropdown {
+    cursor: pointer;
+}
+
+/*---------------------------------------------------------Toobar Header CSS------------------------------------------------------------------------*/
+
+.toolbarul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.toolbarul li {
+    float: left;
+}
+
+.toolbarul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.toolbarul li a:hover {
+    background-color:white;
+}
+
+.toolbarul{
+    position:relative;
+    top:-7px;
+}
+
+#dropdown {
+    position: relative;
+    width: 104px;
+    left: 266px;
+    top: -63px;
+}
+
+#searchinput {
+    position: relative;
+    top: -95px;
+    left: 1163px;
+    width: 280px;
+    border-radius: 6px;
+    height: 33px;
+}
+
+.textbox-container {
+    position: relative;
+    width: 250px; /* Adjust the width as needed */
+    margin: 20px; /* Adjust margin as needed */
+}
+
+.textbox-container input[type="text"] {
+    width: calc(100% - 30px); /* Adjust the width to accommodate the icon */
+    padding: 10px 30px 10px 10px; /* Adjust padding to make room for the icon */
+    border: 2px solid #ccc;
+    border-radius: 20px; /* Adjust the border radius for curved edges */
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+.search-icon {
+
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust the width of the icon */
+    height: 20px; /* Adjust the height of the icon */
+    background-image: url('search-icon.png'); /* Specify the path to your search icon image */
+    background-size: cover;
+    cursor: pointer;
+}
+
+
+
+.ToolbarContainer {
+
+    border: 2px solid #ccc;
+    margin-bottom: 25px;
+    position: relative;
+    height: 95px;
+    margin-left: -202px;
+    width: 1492px;
+
+}
+.submitcustomizedalert {
+    position: relative;
+    background-color: #d4edda;
+    display: block;
+    width: 622px;
+    left: 142px;
+    display: none;
+    top: -42px;
+}
+
+
+.skillNamemoreverticon {
+    position: relative;
+    right: -85px;
+}
+
+
+#skillheading {
+    color: #30619f;
+}
+
+
+
+
+#exportContainer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#btnDropdown {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+.closebtn {
+    position: relative;
+    left: 584px;
+    width: 9px;
+    top: -11px;
+    cursor: pointer;
+}
+
+.strongclass {
+    position: relative;
+    color: red;
+    left: -15px;
+    top: -9px;
+}
+
+
+
+#ExportId {
+    position: relative;
+    bottom: -15px;
+}
+
+#export_banner {
+    display: none;
+    position: relative;
+    left: 273px;
+    z-index: 1;
+    display: block;
+    top: -142px;
+    background-color: aliceblue;
+    width: 175px;
+}
+
+#ExportId {
+    position: relative;
+    bottom: 170px;
+    z-index: 1;
+    left: 265px;
+    border: 0px;
+    background-color: white;
+    font-weight: bold;
+}
+
+#exportIcon {
+    position: relative;
+    bottom: 166px;
+    z-index: 1;
+    left: 254px;
+    border: 0px;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#export_pop{
+    display:none;
+}
+
+#ExportAll, #ExportSelected {
+    cursor: pointer;
+}
+
+
+
+
+.submitcustomizedalert {
+    width: 42%;
+    height: 75%;
+    position: absolute;
+    top: -77px;
+    left: 428px;
+    z-index: 10;
+}
+
+#exportbuttoncontainer, #ExportId {
+    color: #30619f;
+}
+
+#ExportAll:hover, #ExportSelected:hover {
+    background-color: blue;
+}
+
+
+
+.k-grid-header .k-header .k-link::after {
+    content: "more_vert"; /* Code for 'more_vert' icon */
+    font-family: "Material Icons"; /* Material Icons font family */
+    font-size: 24px; /* Adjust icon size as needed */
+    position: absolute;
+    right: 8px; /* Adjust the position of the icon */
+    top: 50%; /* Adjust the position of the icon */
+    transform: translateY(-50%);
+}
+
+
+#grid {
+    height: 500px;
+    width: 1491px;
+    margin-left: -201px;
+}
+
+.menu-box {
+    background-color: white;
+    border-radius: 4px;
+}
+
+
+#searchicon {
+    position: relative;
+    top: -57px;
+    left: 1420px;
+    width: 280px;
+    border-radius: 6px;
+    height: 33px;
+}
+
+.more_vertoptions {
+    position: relative;
+    top: 7px;
+    margin-left: 55px;
+}
+
+
+
+.Morevert-container {
+    display: none;
+    position: relative;
+    border: 1px solid;
+    width: 170px;
+    background-color: white;
+    z-index: 1;
+    margin-top: -292px;
+    margin-left: 104px;
+}
+
+#uparrowascending, #downarrowdescending, #columnsicon, #filtericon {
+    color: black;
+}
+
+#DeletemodalId {
+    margin-top: -331px;
+    position: relative;
+    display: none;
+    position: relative;
+    width: 560px;
+    margin-right: 437px;
+    border: 1px solid;
+    height: 241px;
+    top: 60px;
+    overflow: hidden;
+    max-height: 196%;
+}
+
+.Deletepopheading {
+    position: relative;
+    background-color: blue;
+    top: -17px;
+    height: 42px;
+}
+
+.modal-content {
+
+    top: -27px;
+}
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 30px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.modal-content {
+    overflow-y: hidden;
+}
+
+
+p {
+    margin-top: -10px;
+    margin-bottom: 1rem;
+}
+
+
+.disableicons{
+    opacity:0.5;
+    cursor:none;
+    pointer-events:none;
+}
+
+

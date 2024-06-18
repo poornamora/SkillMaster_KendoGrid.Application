@@ -1,0 +1,26 @@
+﻿body {
+}
+
+
+
+.fa-exclamation-circle {
+    color: red;
+}
+
+.Logincontainer {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: cornflowerblue;
+}
+
+.text-decoration-none
+{
+    color:black
+}
+
+
+#displaymessage {
+    color: red;
+    position: relative;
+    right: -122px;
+}
