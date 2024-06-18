@@ -37,13 +37,13 @@
 
 
 
-    #inputskillname, #inputNumberofEmployees, #inputRatePerHour {
-        width: calc(100% - 335px); /* Set width to 100% minus padding */
-        padding: 0px; /* Add padding for better appearance */
-        border: 1px solid #ccc; /* Add border */
-        border-radius: 5px; /* Add border radius for rounded corners */
-        margin-bottom: 10px; /* Add margin at bottom for spacing */
-    }
+#inputskillname, #inputNumberofEmployees, #inputRatePerHour {
+    width: calc(100% - 335px); /* Set width to 100% minus padding */
+    padding: 0px; /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-bottom: 10px; /* Add margin at bottom for spacing */
+}
     
    
 
@@ -138,13 +138,6 @@
 .heading{
     color:white;
 }
-
-/*[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-    position: absolute;
-    opacity: 2;
-    pointer-events: none;
-}
-*/
 
 #inputskillname {
     position: relative;
@@ -266,7 +259,8 @@
 
 #addButton, #gridbutton, #binbutton, #editbutton, #gridbutton, #Refreshbutton, #dropdownlist {
     cursor: pointer;
-    color: #30619f
+    color: #30619f;
+    font-size:26px;
 }
 #closebtn{
     cursor:pointer;
@@ -355,14 +349,12 @@
 
 
 .ToolbarContainer {
-
     border: 2px solid #ccc;
     margin-bottom: 25px;
     position: relative;
-    height: 95px;
+    height: 105px;
     margin-left: -202px;
     width: 1492px;
-
 }
 .submitcustomizedalert {
     position: relative;
@@ -383,6 +375,7 @@
 
 #skillheading {
     color: #30619f;
+    font-size: 20px;
 }
 
 
@@ -435,19 +428,20 @@
 
 #ExportId {
     position: relative;
-    bottom: 170px;
+    bottom: 172px;
     z-index: 1;
-    left: 265px;
+    left: 296px;
     border: 0px;
     background-color: white;
     font-weight: bold;
+    font-size: 21px;
 }
 
 #exportIcon {
     position: relative;
-    bottom: 166px;
+    bottom: 172px;
     z-index: 1;
-    left: 254px;
+    left: 288px;
     border: 0px;
     background-color: white;
     font-weight: bold;
