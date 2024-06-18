@@ -403,7 +403,7 @@
 
 .strongclass {
     position: relative;
-    color: red;
+    color: green;
     left: -15px;
     top: -9px;
 }
@@ -455,9 +455,6 @@
 #ExportAll, #ExportSelected {
     cursor: pointer;
 }
-
-
-
 
 .submitcustomizedalert {
     width: 42%;

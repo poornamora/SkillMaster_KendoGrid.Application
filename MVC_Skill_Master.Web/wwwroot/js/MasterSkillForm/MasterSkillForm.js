@@ -554,6 +554,7 @@ $(document).ready(function () {
         e.preventDefault();
         skillid = parseInt($(this).attr('getEditId'), 0);
         if (skillid > 0 && skillid == null) {
+            $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to Edit');
@@ -592,6 +593,7 @@ $(document).ready(function () {
         e.preventDefault();
         skillid = parseInt($(this).attr('getDeleteId'), 0);
         if (skillid == null && skillid >= 1) {
+            $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to Delete');
@@ -695,7 +697,8 @@ $(document).ready(function () {
         }).toArray();
 
 
-        if (selectedSkillIds.length > 1 ) {
+        if (selectedSkillIds.length > 1) {
+            $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to Edit');
@@ -763,6 +766,7 @@ $(document).ready(function () {
         }).toArray();
 
         if (selectedSkillIds.length > 1) {
+            $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to Delete');
@@ -777,6 +781,7 @@ $(document).ready(function () {
 
 
         if (selectedSkillIds == null || selectedSkillIds.length < 1) {
+            $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to Delete');
@@ -833,6 +838,7 @@ $(document).ready(function () {
 
         if (selectedSkillIds.length > 1) {
             $('.strongclass').text('Error!');
+            $('.strongclass').css('color','red');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
             $('#errormsg').text('Please select one skill to View');
             $('.submitcustomizedalert').fadeIn();
