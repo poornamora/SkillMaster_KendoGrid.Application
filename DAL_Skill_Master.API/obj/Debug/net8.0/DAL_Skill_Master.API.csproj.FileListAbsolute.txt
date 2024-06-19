@@ -139,3 +139,4 @@ C:\Users\Poornachandra.M\source\repos\Skill_Master_Task.Application\DAL_Skill_Ma
 C:\Users\Poornachandra.M\source\repos\Skill_Master_Task.Application\DAL_Skill_Master.API\obj\Debug\net8.0\DAL_Skill_Master.API.pdb
 C:\Users\Poornachandra.M\source\repos\Skill_Master_Task.Application\DAL_Skill_Master.API\obj\Debug\net8.0\DAL_Skill_Master.API.genruntimeconfig.cache
 C:\Users\Poornachandra.M\source\repos\Skill_Master_Task.Application\DAL_Skill_Master.API\obj\Debug\net8.0\ref\DAL_Skill_Master.API.dll
+C:\Users\Poornachandra.M\source\repos\Skill_Master_Task.Application\DAL_Skill_Master.API\obj\Debug\net8.0\DAL_Skill_Master.API.sourcelink.json
