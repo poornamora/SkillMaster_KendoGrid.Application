@@ -44,28 +44,21 @@
 
        
         <div class="textbox-container">
-        
             <i id="searchicon" class="material-symbols-outlined">search</i>
             <input type="text" id="searchinput" placeholder="Search">
-            
         </div>
                 
 
         <div class="exportContent">
             <div id="exportbuttoncontainer">
-                <button id="ExportId">Export</button>
+                <button id="ExportId">EXPORT</button>
                 <i id="exportIcon" class='material-icons dropdown-icon'>arrow_drop_down</i>
             </div>
             <div id="export_pop">
                 <div id="export_banner">
-                    <div id="ExportAll">
-                        <p>Export to Excel All</p>
-                    </div>
-                    <div id="ExportSelected">
-                        <p>Export to Excel Selected</p>
-                    </div>
+                    <p id="ExportAll">Export to Excel All</p>
+                    <p id="ExportSelected">Export to Excel Selected</p>
                 </div>
-              
             </div>
         </div>
 
@@ -82,28 +75,6 @@
             </div>
         </div>
 
-        @*Filteration container*@
-        <div class="Morevert-container" id="morevert-container">
-            <div id="Filter">
-                <ul>
-                    <li>
-                        <a id='uparrowascending' href="#"><span class="material-symbols-outlined">arrow_upward</span>Sort Aescending</a>
-                    </li>
-
-                    <li>
-                        <a id='downarrowdescending'  href="#"> <span class="material-symbols-outlined ">arrow_downward</span>Sort Descending</a>
-                    </li>
-
-                    <li>
-                        <a id='columnsicon' href="#"><span class="material-symbols-outlined ">view_week</span>Columns</a>
-                    </li>
-
-                    <li>
-                        <a id='filtericon' href="#"><span class="material-symbols-outlined ">filter_alt</span>Filter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
 
     </div>
 
@@ -132,8 +103,7 @@
                 </div>
             </div>
 
-            <div class="alert alert-success " role="alert" id="successalert">
-            </div>
+            @* <div class="alert alert-success " role="alert" id="successalert"></div> *@
                
 
             <div class="ID-item">
@@ -152,28 +122,31 @@
                     <span id="skillicontxt" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
                 </div>
             </div>
+
             <div class="NumberofEmployeesitem">
                 <label for="inputNumberofEmployees" class="required"><b>Number of Employees:</b></label>
-                <input type="text" name="NumberofEmployees" placeholder="NumberofEmployees" id="inputNumberofEmployees" />
+                <input type="number" name="NumberofEmployees" placeholder="NumberofEmployees" id="inputNumberofEmployees" />
                 <div>
                     <span id="NumberofEmployeeserror"></span>
                     <span id="Numbericontxt" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
                 </div>
             </div>
+
             <div class="RatePerHourItem">
                 <label for="inputRatePerHour" class="colorclass"><b>Rate Per Hour:</b></label>
-                <input type="text" name="RatePerHour" placeholder="RatePerHour" id="inputRatePerHour" />
+                <input type="number" name="RatePerHour" placeholder="RatePerHour" id="inputRatePerHour" />
                 <div>
                     <span id="RatePerHourerror"></span>
                     <span id="RatePerHouricon" class="material-symbols-outlined Iconcolor"></span>
                 </div>
             </div>
+
             <div class="RemarkItem">
                 <label for="inputNumberofEmployees" class="Remarkclass"><b>Remark:</b></label>
                 <textarea name="Remark" placeholder="Remark" id="inputRemark" rows="4" cols="50"></textarea>
             </div>
-            <div class="item status">
 
+            <div class="item status">
                 <div class="row" id="divisActive">
                 <label id="lblactive">
                     <input type="checkbox" id="dummycheckbox" checked/>
@@ -187,11 +160,7 @@
                         <span id="spanisActive"><b>Active</b></span>
                     </label>
                 </div>
-            </div>
-            <div class="alert alert-warning warningalert" role="alert" id="warningalert">
-                <span id="ExistsNameId"></span>
-            </div> 
-            
+            </div>   
 
             <div class="buttonitem">
                 <input type="button" value="Save" id="submit" />

@@ -418,12 +418,13 @@
 #export_banner {
     display: none;
     position: relative;
-    left: 273px;
+    left: 302px;
     z-index: 1;
     display: block;
-    top: -142px;
-    background-color: aliceblue;
+    top: -172px;
+    background-color: white;
     width: 175px;
+    border: solid 1px;
 }
 
 #ExportId {
@@ -433,7 +434,6 @@
     left: 296px;
     border: 0px;
     background-color: white;
-    font-weight: bold;
     font-size: 21px;
 }
 
@@ -452,8 +452,15 @@
     display:none;
 }
 
-#ExportAll, #ExportSelected {
+#ExportAll {
+    position: relative;
     cursor: pointer;
+    top: 3px;
+}
+#ExportSelected {
+    position: relative;
+    cursor: pointer;
+    top: 8px;
 }
 
 .submitcustomizedalert {
@@ -475,15 +482,15 @@
 
 
 
-.k-grid-header .k-header .k-link::after {
-    content: "more_vert"; /* Code for 'more_vert' icon */
-    font-family: "Material Icons"; /* Material Icons font family */
-    font-size: 24px; /* Adjust icon size as needed */
-    position: absolute;
-    right: 8px; /* Adjust the position of the icon */
-    top: 50%; /* Adjust the position of the icon */
-    transform: translateY(-50%);
-}
+/*.k-grid-header .k-header .k-link::after {
+    content: "more_vert";*/ /* Code for 'more_vert' icon */
+    /*font-family: "Material Icons";*/ /* Material Icons font family */
+    /*font-size: 24px;*/ /* Adjust icon size as needed */
+    /*position: absolute;
+    right: 8px;*/ /* Adjust the position of the icon */
+    /*top: 50%;*/ /* Adjust the position of the icon */
+    /*transform: translateY(-50%);
+}*/
 
 
 #grid {
@@ -507,24 +514,6 @@
     height: 33px;
 }
 
-.more_vertoptions {
-    position: relative;
-    top: 7px;
-    margin-left: 55px;
-}
-
-
-
-.Morevert-container {
-    display: none;
-    position: relative;
-    border: 1px solid;
-    width: 170px;
-    background-color: white;
-    z-index: 1;
-    margin-top: -292px;
-    margin-left: 104px;
-}
 
 #uparrowascending, #downarrowdescending, #columnsicon, #filtericon {
     color: black;
@@ -571,9 +560,9 @@
 }
 
 
-p {
-    margin-top: -10px;
-    margin-bottom: 1rem;
+p{
+    margin-top: -3px;
+    margin-bottom: 8px;
 }
 
 
@@ -584,3 +573,43 @@ p {
 }
 
 
+.k-menu-link-text {
+    color: black;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.k-i-sort-desc-sm::before {
+    content: "\e128";
+    color: black;
+}
+
+.k-i-columns::before {
+    content: "\e02d";
+    color: black;
+}
+
+.k-i-filter::before {
+    content: "\e129";
+    color: black;
+}
+
+.k-i-sort-asc-sm::before {
+    content: "\e127";
+    color: black;
+}
+
+.k-i-arrow-e::before {
+    color: black;
+    content: "\e005";
+}
+
+k-header-column-menu:hover{
+    background-color:blue;
+}

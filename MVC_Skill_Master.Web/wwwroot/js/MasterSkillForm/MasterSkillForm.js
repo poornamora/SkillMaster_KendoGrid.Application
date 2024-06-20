@@ -43,7 +43,6 @@ Globalvariables = {
     ViewIcon:'.View'
 }
 $(document).ready(function () {
-    M.AutoInit();
     var jq = $.noConflict();
     var mode = $(Globalvariables.Mode).val();
     var hostname = $(Globalvariables.basaddress).attr("data");
@@ -137,9 +136,17 @@ $(document).ready(function () {
                     },
                     error: function (xhr) {
                         if (xhr.status === 409) {
-                            $(Globalvariables.warningalert).show();
-                            $(Globalvariables.ExistsName).html('Warning Alert : SkillName already exists in the database.').show();
-                            $(Globalvariables.ExistsNameIcon).show();
+                            $(Globalvariables.AddModal).modal('close');
+                            $('.strongclass').text('Warning!');
+                            $('.strongclass').css('color', '#923a00');
+                            $('.submitcustomizedalert').css('background-color', '#ff9a57');
+                            $('#errormsg').text('SkillName already exists in the database');
+                            $('.submitcustomizedalert').fadeIn();
+
+                            setTimeout(function () {
+                                $('.submitcustomizedalert').fadeOut();
+                            }, 4000);
+
                         } else {
                             alert('error occured while passing the data:');
                         }
@@ -156,7 +163,7 @@ $(document).ready(function () {
                     success: function (response) {
                         $(Globalvariables.AddModal).modal('close');
                         $('.strongclass').text('Success!');
-                        $('#errormsg').text('Form Updated successfully');
+                        $('#errormsg').text('selected Skill is Updated successfully');
                         $('.submitcustomizedalert').fadeIn(); 
                         setTimeout(function () {
                             $('.submitcustomizedalert').fadeOut(); 
@@ -179,7 +186,7 @@ $(document).ready(function () {
                         console.log(response);
                         if (response != null) {
                             $(Globalvariables.AddModal).modal('close');
-                            $('#errormsg').text('Row Deleted successfully');
+                            $('#errormsg').text('selected Skill is Deleted successfully');
                             $('.submitcustomizedalert').fadeIn();
 
                             setTimeout(function () {
@@ -298,17 +305,12 @@ $(document).ready(function () {
             height: 500,
             width: 1491,
             Scrollable: true,
+            sortable: true,
+            filterable:true,
             pageable: true,
-            pageable: {
-                numeric: true,
-                refresh: true,
-                pageSizes: [10, 25, 50],
-                previousNext: true,
-                input: false,
-                info: false
-            },
- 
-            resizable: { rows: true, columns: true },
+            columnMenu: true,
+            autoSync: true,
+            resizable: {columns: true },
 
             columns: [{
                 selectable: true,
@@ -320,34 +322,56 @@ $(document).ready(function () {
                         "class": "checkbox-align",
                     }
                 },
-                { field: "skillName", width: "100px", title: "Skill Name", headerTemplate: '<span>Skill Name</span><span class="material-icons material-symbols-outlined more_vertoptions" data-field="skillName">more_vert</span>' },
-                { field: "numberofEmployees", width: "100px", title: "Number of Employees", headerTemplate: '<span>Number of Employees</span><span class="material-icons material-symbols-outlined more_vertoptions" data-field="numberofEmployees">more_vert</span>' },
-                { field: "ratePerHour", width: "100px", title: "Rate Per Hour", headerTemplate: '<span>Rate Per Hour</span><span class="material-icons material-symbols-outlined more_vertoptions" data-field="ratePerHour">more_vert</span>' },
-                { field: "remark", width: "100px", title: "Remarks", headerTemplate: '<span>Remarks</span><span class="material-icons material-symbols-outlined more_vertoptions" data-field="remark">more_vert</span>' },
-                { field: "isActive", width: "100px", title: "IsActive", headerTemplate: '<span>IsActive</span><span class="material-icons material-symbols-outlined more_vertoptions" data-field="isActive">more_vert</span>' },
+                { field: "skillName", width: "100px", title: "Skill Name"},
+                { field: "numberofEmployees", width: "100px", title: "Number of Employees"},
+                { field: "ratePerHour", width: "100px", title: "Rate Per Hour"},
+                { field: "remark", width: "100px", title: "Remarks"},
+                { field: "isActive", width: "100px", title: "IsActive"},
                 { title: "Action", width: "100px", template: processData}
             ],
             selectable: "multiple row",
                 
             change: function (e) {
-
+                var grid = $(Globalvariables.Grid).data("kendoGrid");
                 var selectedRows = this.select();
-                var dataItem;
-                selectedRows.each(function (index, row) { 
-                    dataItem = $(Globalvariables.Grid).data("kendoGrid").dataItem(row);
+                var selectedSkillIds = [];
+                    
+                selectedRows.each(function (index, row) {
+                    var dataItem = grid.dataItem(row);
+                    selectedSkillIds.push(dataItem.skillId);
                     selectedSkillId = dataItem.skillId;
-                    $(Globalvariables.MasterIdhiddenfield).attr("value", selectedSkillId);
-                    // break out of the loop after the first selected item
-                    return false;
                 });
 
-                if (dataItem) {
+                if (selectedSkillIds.length > 0) {
+                    $(Globalvariables.MasterIdhiddenfield).attr("value", selectedSkillIds.join(', '));
                     $('.disableicons').css('opacity', 1);
                     $('.disableicons').css('pointer-events', 'auto');
-                }
-                else {
+                } else {
+                    $(Globalvariables.MasterIdhiddenfield).attr("value", "");
                     $('.disableicons').css('opacity', 0.5);
+                    $('.disableicons').css('pointer-events', 'none');
                 }
+                
+
+                //var selectedRows = this.select();
+                //var dataItem;
+                //selectedRows.each(function (index, row) { 
+                //    dataItem = $(Globalvariables.Grid).data("kendoGrid").dataItem(row);
+                //    selectedSkillId = dataItem.skillId;
+                //    $(Globalvariables.MasterIdhiddenfield).attr("value", selectedSkillId);
+                //    // break out of the loop after the first selected item    
+                    
+                //});
+
+
+
+                //if (dataItem) {
+                //    $('.disableicons').css('opacity', 1);
+                //    $('.disableicons').css('pointer-events', 'auto');
+                //}
+                //else {
+                //    $('.disableicons').css('opacity', 0.5);
+                //}
             },
                  
             dataBound: function ()
@@ -385,11 +409,10 @@ $(document).ready(function () {
                 //Referesh Event
                 function RefreshDatafunc()
                 {
-
                     $(Globalvariables.Refrehiconbtn).on("click", function () {
+                        Listajaxcall();
                         $(Globalvariables.Grid).data('kendoGrid').refresh();
                         $(Globalvariables.Heading).text("Skill : Add");
-                            
                         $(Globalvariables.warningalert).hide();
                         $(Globalvariables.skillicontext).hide();
                         $(Globalvariables.Numbericontext).hide();
@@ -420,6 +443,7 @@ $(document).ready(function () {
                             "Number Of Employees": item.numberofEmployees,
                             "Rate Per Hour": item.ratePerHour,
                             "Remarks": item.remark,
+                            "Is Active": item.isActive
                         });
                     });
 
@@ -476,6 +500,7 @@ $(document).ready(function () {
                             "Number Of Employees": item.numberofEmployees,
                             "Rate Per Hour": item.ratePerHour,
                             "Remarks": item.remark,
+                            "Is Active": item.isActive
                         });
                     });
 
@@ -564,7 +589,7 @@ $(document).ready(function () {
             }, 2000);
         }
 
-        $(Globalvariables.Heading).text("Skill : Update");
+        $(Globalvariables.Heading).text("Skill : Edit");
         $(Globalvariables.btnsubmit).attr("value","update");
         $.ajax({
             url: hostname + '/api/MasterForm/Getexistingdetails/' + skillid,
@@ -615,7 +640,7 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response);
                 if (response != null) {
-                    $('#errormsg').text('Row Deleted successfully');
+                    $('#errormsg').text('selected Skill is Deleted successfully');
                     $('.submitcustomizedalert').fadeIn();
 
                     setTimeout(function () {
@@ -688,7 +713,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         $('#IsActiveCheckbox').show();
-        $(Globalvariables.Heading).text("Skill : Update");
+        $(Globalvariables.Heading).text("Skill : Edit");
            
         //Retrieve selected rows
         var selectedRows = $(Globalvariables.Grid).data("kendoGrid").select();
@@ -701,7 +726,7 @@ $(document).ready(function () {
             $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
-            $('#errormsg').text('Please select one skill to Edit');
+            $('#errormsg').text('Please select one skill only to Edit');
             $('.submitcustomizedalert').fadeIn();
 
             setTimeout(function () {
@@ -769,7 +794,7 @@ $(document).ready(function () {
             $('.strongclass').css('color', 'red');
             $('.strongclass').text('Error!');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
-            $('#errormsg').text('Please select one skill to Delete');
+            $('#errormsg').text('Please select one skill only to Delete');
             $('.submitcustomizedalert').fadeIn();
 
             setTimeout(function () {
@@ -793,7 +818,7 @@ $(document).ready(function () {
             return false;
         }
 
-            
+        $('#DeletemodalId').modal();    
         $('#DeletemodalId').modal('open');
 
         $('#Deleteconfirmbtn').on('click', function () {
@@ -804,7 +829,7 @@ $(document).ready(function () {
                 success: function (response) {
                     console.log(response);
                     if (response != null) {
-                        $('#errormsg').text('Row Deleted successfully');
+                        $('#errormsg').text('selected Skill is Deleted successfully');
                         $('.submitcustomizedalert').fadeIn();
 
                         setTimeout(function () {
@@ -840,7 +865,7 @@ $(document).ready(function () {
             $('.strongclass').text('Error!');
             $('.strongclass').css('color','red');
             $('.submitcustomizedalert').css('background-color', '#ffdddd');
-            $('#errormsg').text('Please select one skill to View');
+            $('#errormsg').text('Please select one skill only to View');
             $('.submitcustomizedalert').fadeIn();
 
             setTimeout(function () {
@@ -898,14 +923,14 @@ $(document).ready(function () {
         $(Globalvariables.Numbericontext).hide();
         $(Globalvariables.dangeralert).hide();
         $(Globalvariables.modalclass).modal('close');
-        $(Globalvariables.Grid).getKendoGrid().dataSource.read();
         $(Globalvariables.Skillname).val('');
         $(Globalvariables.NumberofEmployees).val('');
         $(Globalvariables.Rateperhour).val('');
         $(Globalvariables.Remark).val('');
         $(Globalvariables.IsActive).prop('checked', false);
         $(Globalvariables.successalert).hide();
-        $(Globalvariables.formsubmit).text('Form submitted successfully').show();
+        $(Globalvariables.formsubmit).hide();
+        Listajaxcall();
         Listajaxcall();
     }
        
@@ -931,90 +956,18 @@ $(document).ready(function () {
 
     $('.k-i-filter').hide();
 
-    //Filter container alignment
-    $(document).on('click', '.more_vertoptions', function (event) {
-
-        columnNameforfilter = $(this).data('field');
-
-        var $icon = $(event.target); // Get the clicked icon
-        var $filterBox = $('.Morevert-container'); // Reference to the filter box
-
-        // Get the icon's position relative to the document
-        var offset = $icon.offset();
-        var iconHeight = $icon.outerHeight();
-        var iconWidth = $icon.outerWidth();
-        var filterBoxWidth = $filterBox.outerWidth();
-
-        // Calculate the position for the filter-box to align it below the icon
-        //var top = offset.top + iconHeight;
-        var top = offset.top + iconHeight - iconHeight;
-        var left = offset.left + iconWidth - filterBoxWidth;
-
-        //var top = offset.top + iconHeight - 87px; // Apply the desired top measurement
-        //var left = offset.left + iconWidth + 209.094px;
-
-        // Set the position of the filter-box and display it
-        $filterBox.css({
-            top: top + 'px',
-            left: left + 'px',
-            display: 'block'
-        });
-
-        $('.Morevert-container').show();
-    });
 
 
     //filteration container hide logic
     $('body').on('click',function () {
         $('#morevert-container').hide();
-        $('.menu-box').hide();
+        $('.menu-box').hide();     
     });
 
 
-    $('#uparrowascending').on('click', function () {
-        var griddataforfilter = $(Globalvariables.Grid).data("kendoGrid")
-           
-        console.log(griddataforfilter);
+  
 
-        var column = columnNameforfilter;
-
-        griddataforfilter.dataSource.sort({ field: column, dir: "asc" })
-
-        $('.Morevert-container').hide();
-    });
-
-    //descending click event
-    $('#downarrowdescending').on('click', function () {
-        var griddataforfilter = $(Globalvariables.Grid).data("kendoGrid")
-
-        console.log(griddataforfilter);
-
-        var column = columnNameforfilter;
-
-        griddataforfilter.dataSource.sort({ field: column, dir: "desc" })
-
-        $('.Morevert-container').hide();
-    });
-
-    //Filtration click event
-    $('#filtericon').on('click', function () {
-        var griddataforfilter = $(Globalvariables.Grid).data("kendoGrid");
-
-        if (griddataforfilter) {
-            // Find the column header cell for 'skillName'
-            var th = $(this).data('field');
-
-            // Check if column header cell exists
-            var columnMenuIcon = th.find(".k-header-column-menu");
-
-            // Trigger click on the column menu icon to open the filter menu
-            columnMenuIcon.trigger("click");
-        }
-        else
-        {
-            console.error("Grid instance not found or not initialized.");
-        }
-    });
+ 
 });
 
 
