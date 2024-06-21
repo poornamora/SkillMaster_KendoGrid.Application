@@ -19,8 +19,8 @@
     right: 0;
     background-color: #fafafa;
     padding: 0;
-    max-height: 57%;
-    width: 50%;
+    max-height: 55%;
+    width: 47%;
     margin: auto;
     overflow-y: auto;
     border-radius: 2px;
@@ -124,6 +124,7 @@
     right: 117px;
     color: white;
     border-radius: 5px;
+    margin-top: -9px;
     cursor: pointer;
 }
 
@@ -131,8 +132,9 @@
 #cancel {
     position: absolute;
     right: 48px;
-    cursor:pointer;
-    color:grey;
+    margin-top: -9px;
+    cursor: pointer;
+    color: grey;
 }
 
 .heading{
@@ -142,12 +144,15 @@
 #inputskillname {
     position: relative;
     left: 116px;
-    width:500px;
+    width: 500px;
+    top: 10px;
 }
+
 
 #inputNumberofEmployees {
     position: relative;
-    left: 50px;
+    left: 52px;
+    top: 10px;
     width: 500px;
 }
 
@@ -155,6 +160,7 @@
     position: relative;
     left: 102px;
     width: 500px;
+    top: 10px;
 }
 
 #inputRemark {
@@ -162,6 +168,7 @@
     width: 500px;
     height: 89px;
     left: 138px;
+    top: 10px;
 }
 
 
@@ -202,17 +209,12 @@
     top: 234px;
 }
 
-
-
-
 #IsActiveCheckbox {
     position: relative;
     top: 18px;
-    left: 234px;
+    left: 236px;
     cursor: pointer;
 }
-
-
 
 
 #dummycheckbox {
@@ -349,14 +351,21 @@
 
 
 .ToolbarContainer {
-    border: 2px solid #ccc;
-    margin-bottom: 25px;
     position: relative;
-    height: 105px;
+    border-bottom-style: inset; 
+    border-bottom-width: 2px;
+    height: 116px;
+    padding: 8px;
+    top: -25px;
     margin-left: -202px;
     width: 1492px;
 }
-.submitcustomizedalert {
+
+ToolbarContainer.inset {
+    border-style: inset;
+}
+
+/*.submitcustomizedalert {
     position: relative;
     background-color: #d4edda;
     display: block;
@@ -364,22 +373,17 @@
     left: 142px;
     display: none;
     top: -42px;
-}
-
+}*/
 
 .skillNamemoreverticon {
     position: relative;
     right: -85px;
 }
 
-
 #skillheading {
     color: #30619f;
-    font-size: 20px;
+    font-size: 23px;
 }
-
-
-
 
 #exportContainer {
     position: relative;
@@ -398,13 +402,14 @@
     left: 584px;
     width: 9px;
     top: -11px;
+    font-size: 22px;
     cursor: pointer;
 }
 
 .strongclass {
     position: relative;
     color: green;
-    left: -15px;
+    left: -19px;
     top: -9px;
 }
 
@@ -467,7 +472,9 @@
     width: 42%;
     height: 75%;
     position: absolute;
-    top: -77px;
+    display:none;
+    background-color: #d4edda;
+    top: -33px;
     left: 428px;
     z-index: 10;
 }
@@ -520,7 +527,7 @@
 }
 
 #DeletemodalId {
-    margin-top: -331px;
+    margin-top: -307px;
     position: relative;
     display: none;
     position: relative;
@@ -530,12 +537,13 @@
     height: 241px;
     top: 60px;
     overflow: hidden;
-    max-height: 196%;
+    max-height: 169%;
 }
 
 .Deletepopheading {
     position: relative;
     background-color: blue;
+    color: white;
     top: -17px;
     height: 42px;
 }
@@ -613,3 +621,81 @@ p{
 k-header-column-menu:hover{
     background-color:blue;
 }
+
+.modal .modal-content {
+    padding: 35px;
+}
+
+#modal-content-curd {
+    position: relative;
+    top: -2px;
+    padding: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#Editblock:hover, #Viewblock:hover, #Deleteblock:hover {
+    background-color: #30619f;
+    color: white;
+}
+
+.curdlistcontainer {
+    position: relative;
+    padding: 4px;
+}
+
+.k-column-title {
+    min-width: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#Editblock, #Viewblock, #Deleteblock {
+    cursor: pointer;
+}
+
+#skillName-color {
+    color: #30619f;
+}
+
+/*-------------------------------------Header style-------------------------------------*/
+
+img {
+    border-style: none;
+    position: relative;
+    left: -206px;
+    top: -10px;
+}
+
+.text-dark {
+    position: relative;
+    left: -200px;
+    top: -7px;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-primary {
+    position: relative;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+    left: -199px;
+    top: -7px;
+}
+
+
+.logout-container {
+    position: absolute;
+    right: -594px;
+    bottom: 1px;
+    top: 37px;
+}
+
+
+
+

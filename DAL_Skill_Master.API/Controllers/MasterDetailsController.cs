@@ -21,17 +21,11 @@ namespace DAL_Skill_Master.API.Controllers
 
 
         [HttpGet, Route("api/MasterForm/ListDetails")]
-        public IActionResult GetAllDetails(ODataQueryOptions<Skill> options)
+        public async Task<IEnumerable<Skill>> GetAllDetails(ODataQueryOptions<Skill> options)
         {
             try
             {
-                //var listdetails = _skillRepository.GetSkillMasterList(ODataQueryOptions<Skill> options);
-                //return listdetails;
-
-
-                var query = _applicationAPIUser.SkillMasterTbl.Where(x => x.IsDeleted==true);
-                var result = options.ApplyTo(query);
-                return Ok(result);
+                return await _skillRepository.GetSkillMasterList(options);
             }
             catch (Exception)
             {

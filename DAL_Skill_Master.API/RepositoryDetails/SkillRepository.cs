@@ -77,15 +77,13 @@ namespace DAL_Skill_Master.API.RepositoryDetails
             }
         }
 
-        public async Task<IEnumerable<Skill>> GetSkillMasterList(ODataQueryOptions<Skill> options)
+        public Task<IEnumerable<Skill>> GetSkillMasterList(ODataQueryOptions<Skill> options)
         {
             try
             {
-                //IEnumerable<Skill> list = await _context.SkillMasterTbl.ToListAsync();
-                //return list;
                 var query = _context.SkillMasterTbl.Where(x => x.IsDeleted==true);
                 var result = options.ApplyTo(query);
-                return (IEnumerable<Skill>)result;
+                return Task.FromResult((IEnumerable<Skill>)result);
             }
             catch (Exception)
             {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DAL_Skill_Master.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d738b91477c8c07dc4d713b52e9a373d9f07be86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23b69367d6678323826ee935f36018d520c4504d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DAL_Skill_Master.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DAL_Skill_Master.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
