@@ -138,17 +138,10 @@ $(document).ready(function () {
                     },
                     error: function (xhr) {
                         if (xhr.status === 409) {
-                            $(Globalvariables.AddModal).modal('close');
-                            $('.strongclass').text('Warning!');
-                            $('.strongclass').css('color', '#923a00');
-                            $('.submitcustomizedalert').css('background-color', '#ff9a57');
-                            $('#errormsg').text('SkillName already exists in the database');
-                            $('.submitcustomizedalert').fadeIn();
 
-                            setTimeout(function () {
-                                $('.submitcustomizedalert').fadeOut();
-                            }, 4000);
-
+                            $(Globalvariables.dangeralert).show();
+                            $('#SkillNameExistsMsg').text('SkillName exists in the database').show();
+                            $('#skillExistsIcon').show();
                         } else {
                             alert('error occured while passing the data:');
                         }

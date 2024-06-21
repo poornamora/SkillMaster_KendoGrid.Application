@@ -63,7 +63,7 @@
 }
 
 
-#skillicon, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #ExistNameIcon {
+#skillicon, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #ExistNameIcon, #skillExistsIcon {
     display: none;
 }
 
@@ -71,7 +71,7 @@
     position: absolute;
     color: red;
 }
-#skillerror, #NumberofEmployeeserror, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt {
+#skillerror, #NumberofEmployeeserror, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #SkillNameExistsMsg {
     color: red;
 }
 
