@@ -87,16 +87,17 @@ namespace DAL_Skill_Master.API.RepositoryDetails
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
 
-        public async Task<ActionResult<SkillMasterDTO>> UpdateSkillMaster(int incomingid, SkillMasterDTO skillMasterModel)
+        public async Task<ActionResult<SkillMasterDTO>> UpdateSkillMaster(SkillMasterDTO skillMasterModel)
         {
             try
             {
                 
-                var existingdetails = await _context.SkillMasterTbl.FirstOrDefaultAsync(i => i.SkillId==incomingid);
+                var existingdetails = await _context.SkillMasterTbl.FirstOrDefaultAsync(i => i.SkillId==skillMasterModel.SkillId);
                 if (existingdetails!=null)
                 {
                     existingdetails.SkillName=skillMasterModel.SkillName;

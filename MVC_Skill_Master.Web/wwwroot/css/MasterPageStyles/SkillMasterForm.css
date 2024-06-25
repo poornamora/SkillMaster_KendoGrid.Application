@@ -71,9 +71,17 @@
     position: absolute;
     color: red;
 }
-#skillerror, #NumberofEmployeeserror, #NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #SkillNameExistsMsg {
+#NumberofEmployeesicon, #skillicontxt, #Numbericontxt, #SkillNameExistsMsg {
     color: red;
 }
+
+#skillerror, #NumberofEmployeeserror {
+    position: relative;
+    left: 26px;
+    color: red;
+}
+
+
 
 .required::after {
     content: "*";
@@ -196,17 +204,16 @@
 }
 
 
-
 #skillicontxt {
     position: absolute;
-    right: 43px;
-    top: 176px;
+    right: -2px;
+    top: 183px;
 }
 
 #Numbericontxt {
     position: absolute;
-    right: 43px;
-    top: 234px;
+    right: -2px;
+    top: 240px;
 }
 
 #IsActiveCheckbox {

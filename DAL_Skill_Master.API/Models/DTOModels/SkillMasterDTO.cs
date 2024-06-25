@@ -4,6 +4,7 @@ namespace DAL_Skill_Master.API.Models.DTOModels
 {
     public class SkillMasterDTO
     {
+        public int SkillId { get; set; }
         public string? SkillName { get; set; }
 
         public int NumberofEmployees { get; set; }

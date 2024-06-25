@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVC_Skill_Master.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23b69367d6678323826ee935f36018d520c4504d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2011cc5607ff2d3a20efe88ed6e8f1a8523927e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVC_Skill_Master.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVC_Skill_Master.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

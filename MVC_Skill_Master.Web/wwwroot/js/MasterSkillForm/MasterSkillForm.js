@@ -53,8 +53,6 @@ $(document).ready(function () {
     var selectedSkillId = null;
     $(Globalvariables.alertclass).hide();
 
-
-
    
 
     //Submit View Delete
@@ -66,15 +64,15 @@ $(document).ready(function () {
 
         var regex_name = /^(?! )[a-zA-Z]+$/;
         if (skillname == '') {
-            $(Globalvariables.skillerror).text('Please provide a Skill Name').show();
             $(Globalvariables.skillicon).show();
+            $(Globalvariables.skillerror).text('Please provide a Skill Name').show();
             $(Globalvariables.skillicontext).show();
             $(Globalvariables.dangeralert).show();
             isvalid = false;
         }
         else if (!regex_name.test(skillname)) {
-            $(Globalvariables.skillerror).text('Please provide a alphabetics only').show();
             $(Globalvariables.skillicon).show();
+            $(Globalvariables.skillerror).text('Please provide a alphabetics only').show();
             $(Globalvariables.skillicontext).show();
             $(Globalvariables.dangeralert).show();
             isvalid = false;
@@ -85,15 +83,16 @@ $(document).ready(function () {
         var NumberofEmployees = $(Globalvariables.NumberofEmployees).val();
         var regex_name = /^(?! )[0-9]+$/;
         if (NumberofEmployees == '') {
-            $(Globalvariables.Numberofemployeeserror).text('Please provide a Number of Employees').show();
             $(Globalvariables.Numberofemployeesicon).show();
+            $(Globalvariables.Numberofemployeeserror).text('Please provide a Number of Employees').show();
             $(Globalvariables.dangeralert).show();
             $(Globalvariables.Numbericontext).show();
             isvalid = false;
         }
         else if (!regex_name.test(NumberofEmployees)) {
-            $(Globalvariables.Numberofemployeeserror).show();
+
             $(Globalvariables.Numberofemployeesicon).show();
+            $(Globalvariables.Numberofemployeeserror).show();
             $(Globalvariables.Numbericontext).show();
             $(Globalvariables.dangeralert).show();
             isvalid = false;
@@ -106,14 +105,16 @@ $(document).ready(function () {
         else {
             IsActive = false;
         }
-             
+
         var UpdatedMasterData = {
+            SkillId: $(Globalvariables.MasterIdhiddenfield).val(),
             SkillName: $(Globalvariables.Skillname).val(),
             NumberofEmployees: $(Globalvariables.NumberofEmployees).val(),
             RatePerHour: $(Globalvariables.Rateperhour).val(),
             Remark: $(Globalvariables.Remark).val(),
             IsActive: IsActive
         }
+        console.log(UpdatedMasterData);
 
         //Submit Update Delete View
         if (isvalid) {
@@ -151,10 +152,9 @@ $(document).ready(function () {
             else if (buttonvalue == "update") {
 
                 $.ajax({
-                    url: hostname + '/api/MasterForm/UpdateDetails/' + id,
-                    type: 'PUT',
-                    data: { id: id, skillMasterModel: UpdatedMasterData },
-
+                    url: hostname + '/api/MasterForm/UpdateDetails',
+                    type: 'PATCH',
+                    data: UpdatedMasterData,
                     success: function (response) {
                         $(Globalvariables.AddModal).modal('close');
                         $('#errormsg').text('selected Skill is Updated successfully');
@@ -173,33 +173,40 @@ $(document).ready(function () {
                     }
                 });
             }
-            else {
-                $.ajax({
-                    url: hostname + '/api/MasterForm/DeleteDetails/' + id,
-                    type: 'DELETE',
-                    data: { id: selectedSkillId },
-                    success: function (response) {
-                        console.log(response);
-                        if (response != null) {
-                            $(Globalvariables.AddModal).modal('close');
-                            $('#errormsg').text('selected Skill is Deleted successfully');
-                            $('.submitcustomizedalert').fadeIn();
-                            setTimeout(function () {
-                                $('.submitcustomizedalert').fadeOut();
-                            }, 3000);
-                        }
-                    },
-                    error: function () {
-                        console.log("Error Occurred");
-                        alert('Error Occured while fetching the data');
-                    }
-                });
-            }
         }
     });
 
        
-    //SkillName Textbox input event
+
+
+    $(Globalvariables.Skillname).on("keypress", function (event) {
+        event.preventDefault();
+        var inputValue = event.key;
+
+        var skillname = $(this).val().trim(); 
+        console.log(skillname);
+
+        var regex_name = /^[A-Za-z ]+$/; 
+
+        
+        if (!regex_name.test(inputValue))
+        {
+           
+            event.preventDefault();
+        }
+        else {
+            // Valid character: Show the input value
+            $(Globalvariables.Skillname).val($(this).val() + inputValue);
+            $(Globalvariables.skillerror).text('Please provide a Skill Name').hide();
+            $(Globalvariables.skillicon).hide();
+            $(Globalvariables.skillicontext).hide();
+            isvalid = false;
+            if (isvalid) {
+                $(Globalvariables.dangeralert).hide();
+            }
+        }
+    });
+
     $(Globalvariables.Skillname).on("input", function () {
         var skillname = $(Globalvariables.Skillname).val();
         console.log(skillname);
@@ -208,15 +215,6 @@ $(document).ready(function () {
         if (skillname == '') {
 
             $(Globalvariables.skillerror).text('Please provide a Skill Name').show();
-            $(Globalvariables.skillicon).show();
-            $(Globalvariables.skillicontext).show();
-            $(Globalvariables.dangeralert).show();
-               
-            isvalid = false;
-            return false;
-        }
-        else if (!regex_name.test(skillname)) {
-            $(Globalvariables.skillerror).text('Please valid provide a Skill Name').show();
             $(Globalvariables.skillicon).show();
             $(Globalvariables.skillicontext).show();
             $(Globalvariables.dangeralert).show();
@@ -242,6 +240,8 @@ $(document).ready(function () {
         var regex_name = /^(?! )[0-9]+$/;
         var Employees = $(Globalvariables.NumberofEmployees).val();
         if (Employees == '') {
+            //$('#Numbericontxt').addClass('error-icon').show();
+            $(Globalvariables.NumberofEmployees).parent().before('<span class="material-symbols-outlined">error</span>');
             $(Globalvariables.Numberofemployeeserror).text('Please provide a Number of Employees').show();
             $(Globalvariables.Numberofemployeesicon).show();
             $(Globalvariables.Numbericontext).show();
@@ -261,7 +261,7 @@ $(document).ready(function () {
             $(Globalvariables.Numberofemployeeserror).hide();
             $(Globalvariables.Numberofemployeesicon).hide();
             $(Globalvariables.Numbericontext).hide();
-            if (isvalid) {
+            if (isvalid == false) {
                 $(Globalvariables.dangeralert).hide();
             }
             isvalid = true;
@@ -667,6 +667,10 @@ $(document).ready(function () {
                     setTimeout(function () {
                         $('.submitcustomizedalert').fadeOut();
                     }, 4000);
+                    Listajaxcall();
+                    Listajaxcall();
+                    $('.disableicons').css('opacity', 0.5);
+                    $('.disableicons').css('pointer-events', 'none');
                 }
             },
             error: function () {
@@ -790,52 +794,51 @@ $(document).ready(function () {
         $(Globalvariables.Heading).text("Skill : Delete");
 
         var selectedRows = $(Globalvariables.Grid).data("kendoGrid").select();
+        
         var selectedSkillIds = selectedRows.map(function (index, element) {
             return $(Globalvariables.Grid).data("kendoGrid").dataItem(element).skillId;
         }).toArray();
 
-        if (selectedSkillIds.length > 1) {
-            $('.strongclass').css('color', 'red');
-            $('.strongclass').text('Error!');
-            $('.submitcustomizedalert').css('background-color', '#ffdddd');
-            $('#errormsg').text('Please select one skill only to Delete');
-            $('.submitcustomizedalert').fadeIn();
 
-            setTimeout(function () {
-                $('.submitcustomizedalert').fadeOut();
-            }, 4000);
-            return false;
-        }
 
         //modal pop initialize and open
+
         $('#DeletemodalId').modal();    
         $('#DeletemodalId').modal('open');
+        
 
-        $('#Deleteconfirmbtn').on('click', function () {
-            $.ajax({
-                url: hostname + '/api/MasterForm/DeleteDetails/' + selectedSkillId,
-                type: 'DELETE',
-                data: { id: selectedSkillId },
-                success: function (response) {
-                    console.log(response);
-                    if (response != null) {
-                        $('#errormsg').text('selected Skill is Deleted successfully');
-                        $('.submitcustomizedalert').fadeIn();
+        if (selectedSkillIds.length >= 1) {
+            $('#Deleteconfirmbtn').on('click', function () {
+               
+                selectedSkillIds.forEach(function(selectedids) {
+                    $.ajax({
+                        url: hostname + '/api/MasterForm/DeleteDetails/' + selectedids,
+                        type: 'DELETE',
+                        data: { id: selectedids },
+                        success: function (response) {
+                            console.log(response);
+                            if (response != null) {
+                                $('#errormsg').text('selected Skill is Deleted successfully');
+                                $('.submitcustomizedalert').fadeIn();
 
-                        setTimeout(function () {
-                            $('.submitcustomizedalert').fadeOut();
-                        }, 4000);
+                                setTimeout(function () {
+                                    $('.submitcustomizedalert').fadeOut();
+                                }, 4000);
 
-                        Listajaxcall();
-                        Listajaxcall();
-                    }
-                },
-                error: function () {
-                    console.log("Error Occurred");
-                    alert('Error Occured while fetching the data');
-                }
+                                Listajaxcall();
+                                Listajaxcall();
+                            }
+                        },
+                        error: function () {
+                            console.log("Error Occurred");
+                            alert('Error Occured while fetching the data');
+                        }
+                    });
+                });
             });
-        });
+            
+        }
+        
     });
 
     //gridbutton ajax call

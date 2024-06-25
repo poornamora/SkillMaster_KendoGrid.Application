@@ -74,15 +74,24 @@ namespace DAL_Skill_Master.API.Controllers
             }
         }
 
-        [HttpPut, Route("api/MasterForm/UpdateDetails/{id}")]
-        public async Task<ActionResult<Skill>> PutSkillFormDetails(int id,SkillMasterDTO skillMasterModel)
+        [HttpPatch, Route("api/MasterForm/UpdateDetails")]
+        public async Task<ActionResult<Skill>> PutSkillFormDetails(Skill skillMasterModel)
         {
             try
             {
-                if (id<=0) return NotFound();
+                if (skillMasterModel==null) return NotFound();
 
-                var updateddetails=await _skillRepository.UpdateSkillMaster(id, skillMasterModel);
+                //conversion from Model to Dto  
+                SkillMasterDTO Dtoobj = new SkillMasterDTO();
+                Dtoobj.SkillId=skillMasterModel.SkillId;
+                Dtoobj.SkillName=skillMasterModel.SkillName;
+                Dtoobj.Remark=skillMasterModel.Remark;
+                Dtoobj.RatePerHour=skillMasterModel.RatePerHour;
+                Dtoobj.NumberofEmployees=skillMasterModel.NumberofEmployees;
+                Dtoobj.IsActive=skillMasterModel.IsActive;
 
+
+                var updateddetails = await _skillRepository.UpdateSkillMaster(Dtoobj);
                 return Ok(updateddetails);
                 
             }

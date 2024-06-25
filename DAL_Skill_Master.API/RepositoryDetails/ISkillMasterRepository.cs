@@ -11,7 +11,7 @@ namespace DAL_Skill_Master.API.RepositoryDetails
 
         Task<ActionResult<Skill>> AddSkillMaster(Skill skillMasterModel);
 
-        Task<ActionResult<SkillMasterDTO>> UpdateSkillMaster(int id, SkillMasterDTO skillMasterModel);
+        Task<ActionResult<SkillMasterDTO>> UpdateSkillMaster(SkillMasterDTO skillMasterModel);
 
         Task<ActionResult<Skill>> DeleteDetails(int id);
 
